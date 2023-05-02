@@ -46,7 +46,7 @@ const getRelease = (user, repo, version, platform, arch, ext, targetDir) => {
       decompress(res.data, path.join(cwd, targetFolder))
         .then((files) => {
           // cleanup unnecessary files?
-          fs.rmSync(path.join(targetFolder, 'README.md'))
+          fs.rmSync(path.join(cwd, targetFolder, 'README.md'))
         })
         .catch((err) => {
           console.log(`Decompress error:`, err)
