@@ -43,7 +43,7 @@ const getRelease = (user, repo, version, platform, arch, ext, targetDir) => {
   const res = axios
     .get(url, { responseType: 'arraybuffer' })
     .then((res) => {
-      decompress(res.data, targetFolder)
+      decompress(res.data, path.join(cwd, targetFolder))
         .then((files) => {
           // cleanup unnecessary files?
           fs.rmSync(path.join(targetFolder, 'README.md'))
