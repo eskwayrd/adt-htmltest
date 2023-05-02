@@ -39,6 +39,7 @@ const getRelease = (user, repo, version, platform, arch, ext, targetDir) => {
 
   const url = `https://github.com/${user}/${repo}/releases/download/v${version}/${repo}_${version}_${platform}_${arch}.${ext}`
 
+  console.log(`Installing ${user}/${repo} into ${targetFolder}`)
   const res = axios
     .get(url, { responseType: 'arraybuffer' })
     .then((res) => {
